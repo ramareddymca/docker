@@ -1,0 +1,64 @@
+version: '3'
+services:      
+  productweb:
+    container_name: product-service
+    image: product-service
+    ports:
+      - '9098:9097'
+    environment:  
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761 
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411   
+    depends_on:
+      - eureka      
+    restart: always  
+  
+  reviewweb:
+    container_name: review-service
+    image: review-service
+    ports:
+      - '9099:9099'    
+    environment:  
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:      
+      - eureka      
+    restart: always
+  
+  eureka:
+    container_name: eureka
+    image: eureka-service
+    ports:
+      - '8761:8761'
+    restart: always
+  
+  api-gateway:
+    container_name: api-gateway
+    image: api-gateway
+    ports:
+      - '8190:8190'
+    environment:      
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:      
+      - productweb
+      - reviewweb
+      - eureka
+    restart: always  
+  
+  zipkin:
+    container_name: zipkin
+    hostname: zipkin
+    image: zipkin
+    ports:
+      - '9411:9411'
+    depends_on:
+      - reviewweb
+      - productweb
+      - eureka
+    restart: always
