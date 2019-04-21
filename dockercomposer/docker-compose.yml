@@ -57,6 +57,9 @@ services:
     image: zipkin
     ports:
       - '9411:9411'
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761  
     depends_on:
       - reviewweb
       - productweb
