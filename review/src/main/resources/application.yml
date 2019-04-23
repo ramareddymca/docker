@@ -1,0 +1,26 @@
+server:
+  port: 9099
+
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: review-service
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}/ 
+   
+zuul:  
+  routes:
+    review-service:
+      path: /review/**
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/}
+  instance:
+    preferIpAddress: true
