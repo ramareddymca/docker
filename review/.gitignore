@@ -27,3 +27,7 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+
+review/.mvn/
+review/mvnw
+review/mvnw.cmd

@@ -1,3 +1,11 @@
+
+/.metadata/
+/.recommenders/
+RemoteSystemsTempFiles
+apigateway/.mvn/
+apigateway/mvnw
+apigateway/mvnw.cmd
+
 HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -27,3 +35,5 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+
+eureka

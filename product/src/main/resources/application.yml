@@ -8,10 +8,7 @@ spring:
     sampler:
       probability: 1.0
   zipkin:
-    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}/
-  h2:
-    console:
-      enabled: true
+    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}/ 
   
 zuul:  
   routes:
