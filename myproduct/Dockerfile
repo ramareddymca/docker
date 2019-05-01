@@ -5,6 +5,6 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM openjdk:8-jdk-alpine
-COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.jar myproduct-service-0.1-Release.jar
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/myproduct-service-0.0.1-SNAPSHOT.jar myproduct-service-0.1-Release.jar
 EXPOSE 9966
 ENTRYPOINT ["java","-jar","/myproduct-service-0.1-Release.jar"]
