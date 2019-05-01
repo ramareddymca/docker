@@ -17,10 +17,10 @@ public class MyController {
 	private static ProdReviews myReviews() {
 		ProdReviews obj = new ProdReviews();
 		obj.setId(1);
-		obj.setReview("product is very good");
+		obj.setReview("product is excellent");
 		obj.setProdRank(1);
 		obj.setId(1);
-		obj.setComments("Good cjoice to buy");
+		obj.setComments("Good choice to buy");
 		return obj;
 	}
 
